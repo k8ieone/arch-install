@@ -25,7 +25,6 @@ echo "Keyboard layout: cz-qwertz"
 echo -n "Please enter the destination partition: /dev/"
 read -r INSTALLPART
 ## Check if partition exists
-# TODO: Silence the output of this command
 if fdisk -l /dev/$INSTALLPART
 then
     :
@@ -46,7 +45,6 @@ then
     echo -n "y/n "
     read -r EFIFORMAT
 else
-    # TODO: Check if the disk exists
     echo -n "Please enter the destination disk (not partition) for GRUB: /dev/"
     read -r GRUBDESTDISK
 fi
@@ -73,13 +71,45 @@ do
         echo "Please try again..."
     fi
 done
-## Ask about NetworkManager and OpenSSH
+## Ask about the username and password for the new user
+echo -n "Enter your new username: "
+read -r _USERNAME
+USERPASS="asdf"
+while [[ $USERPASS != $USERPASS2 ]]
+do
+    echo -n "Enter the user's new password: "
+    read -rs USERPASS
+    echo
+    echo -n "Please enter it again: "
+    read -rs USERPASS2
+    echo
+    if [[ $USERPASS != $USERPASS2 ]]
+    then
+        echo "${red}The passwords don't match!${reset}"
+        echo "Please try again..."
+    fi
+done
+## Ask about OpenSSH
 echo -n "Do you want to install the OpenSSH server? "
 echo -n "(Y/n): "
 read -r SSHINSTALL
+## Ask about NetworkManager
 echo -n "Do you want to install NetworkManager? "
 echo -n "(Y/n): "
 read -r NMINSTALL
+## Ask about SWAP
+echo -n "Do you wish to setup a SWAP file? "
+echo -n "(y/N): "
+read -r DOSWAP
+if [[ $DOSWAP == y* || $DOSWAP == Y* ]]
+then
+    echo -n "Enter the SWAP file size (e.g.: 2G or 512M): "
+    read -r SWAPSIZE
+fi
+## Ask about EarlyOOM
+echo -n "Do you wish to setup EarlyOOM (killing processes when running out of memory)? "
+echo -n "(y/N): "
+read -r DOOOM
 
 # Below, we actually start doing stuff.
 ## enable NTP
@@ -107,8 +137,7 @@ then
 fi
 
 ## Installing the base packages
-# TODO: How about choosing the fastest mirror?
-pacstrap /mnt base linux linux-firmware
+pacstrap /mnt base linux linux-firmware sudo
 
 ## Generating fstab
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -116,6 +145,9 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ## Enable multicore compiling in makepkg.conf
 sed -i '/ MAKEFLAGS /s/^/#/' /mnt/etc/makepkg.conf
 echo "MAKEFLAGS=\"-j\$(nproc)\"" >> /mnt/etc/makepkg.conf
+
+## wheel members have sudo rights
+sudo sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /mnt/etc/sudoers
 
 ## Run the script that sets up this repo inside the chroot
 cp ~/arch-install/x86_64/01_repo.sh /mnt
@@ -130,4 +162,7 @@ arch-chroot /mnt bash /root/arch-install/x86_64/06_root.sh $ROOTPASS
 arch-chroot /mnt bash /root/arch-install/x86_64/07_grub.sh $GRUBDESTDISK
 arch-chroot /mnt bash /root/arch-install/x86_64/08_ssh.sh $SSHINSTALL
 arch-chroot /mnt bash /root/arch-install/x86_64/09_nm.sh $NMINSTALL
+arch-chroot /mnt bash /root/arch-install/x86_64/10_user.sh $_USERNAME $USERPASS
+arch-chroot /mnt bash /root/arch-install/x86_64/11_swap.sh $DOSWAP $SWAPSIZE
+arch-chroot /mnt bash /root/arch-install/x86_64/12_earlyoom.sh $DOOOM
 exit 0
