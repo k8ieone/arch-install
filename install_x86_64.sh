@@ -46,6 +46,7 @@ then
     echo -n "y/n "
     read -r EFIFORMAT
 else
+    # TODO: Check if the disk exists
     echo -n "Please enter the destination disk (not partition) for GRUB: /dev/"
     read -r GRUBDESTDISK
 fi
@@ -56,7 +57,7 @@ read -r _HOSTNAME
 echo -n "Enter your timezone (ex. Europe/Prague): "
 read -r _TIMEZONE
 ## Ask about the root password
-$ROOTPASS="asdf"
+ROOTPASS="asdf"
 while [[ $ROOTPASS != $ROOTPASS2 ]]
 do
     echo -n "Enter your new root password: "
