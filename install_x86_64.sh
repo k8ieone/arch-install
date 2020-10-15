@@ -6,8 +6,7 @@ green=$(tput setaf 2)
 reset=$(tput sgr0)
 
 # Check internet access
-# TODO: Use a different tool here, wget seems to have trouble sometimes. wget is also not on the default Arch ISO.
-if wget -q --spider https://archlinux.org
+if [[ curl -Is http://archlinux.org/ | head -1 | grep 200 ]]
 then
     :
 else
@@ -16,8 +15,6 @@ else
     echo "Aborting..."
     exit 1
 fi
-# Install packages required by the install script
-pacman -Sy --noconfirm git
 
 # Set the console keymap
 loadkeys cz-qwertz
@@ -28,6 +25,7 @@ echo "Keyboard layout: cz-qwertz"
 echo -n "Please enter the destination partition: /dev/"
 read -r INSTALLPART
 ## Check if partition exists
+# TODO: Silence the output of this command
 if fdisk -l /dev/$INSTALLPART
 then
     :
@@ -72,11 +70,11 @@ do
     fi
 done
 ## Ask about NetworkManager and OpenSSH
-echo -n "Do you want to install the OpenSSH server?"
-echo -n "(Y/n)"
+echo -n "Do you want to install the OpenSSH server? "
+echo -n "(Y/n): "
 read -r SSHINSTALL
-echo -n "Do you want to install NetworkManager?"
-echo -n "(Y/n)"
+echo -n "Do you want to install NetworkManager? "
+echo -n "(Y/n): "
 read -r NMINSTALL
 
 # Below, we actually start doing stuff.
@@ -86,9 +84,9 @@ timedatectl set-ntp true
 
 ## Partitioning
 ### Format and mount root
-mkfs.ext4 /dev/$1
+mkfs.ext4 /dev/$INSTALLPART
 sleep 2
-mount /dev/$1 /mnt
+mount /dev/$INSTALLPART /mnt
 ### Here we format and mount the EFI partition
 if  [[ $EFIFORMAT == y* ]]
 then
