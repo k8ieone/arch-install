@@ -8,4 +8,4 @@ green=$(tput setaf 2)
 reset=$(tput sgr0)
 
 # Change root's password
-chpasswd "root:$1"
+echo "root:$1" | chpasswd
