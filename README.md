@@ -4,9 +4,7 @@
 # What can I do with this?
 This is a set of bash scripts that will install Arch Linux for you.
 # Is it ready?
-This tool is undergoing a major rewrite. At the moment, it's probably completely broken.
-# What does each script do?
-TODO: Write this section...
+This tool is undergoing a major rewrite. At the moment, it *will* make a booting Arch install. That's it.
 # Usage:
 Just run the `install_x86_64.sh` script and follow the script's instructions.
 # Why?
