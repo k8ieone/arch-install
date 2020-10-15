@@ -162,7 +162,7 @@ arch-chroot /mnt bash /root/arch-install/x86_64/06_root.sh $ROOTPASS
 arch-chroot /mnt bash /root/arch-install/x86_64/07_grub.sh $GRUBDESTDISK
 arch-chroot /mnt bash /root/arch-install/x86_64/08_ssh.sh $SSHINSTALL
 arch-chroot /mnt bash /root/arch-install/x86_64/09_nm.sh $NMINSTALL
-arch-chroot /mnt bash /root/arch-install/x86_64/10_user.sh $_USERNAME $USERPASS
+arch-chroot /mnt bash /root/arch-install/x86_64/10_user.sh $_USERNAME $USERPASS $SSHINSTALL
 arch-chroot /mnt bash /root/arch-install/x86_64/11_swap.sh $DOSWAP $SWAPSIZE
 arch-chroot /mnt bash /root/arch-install/x86_64/12_earlyoom.sh $DOOOM
 exit 0
