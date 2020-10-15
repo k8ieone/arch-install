@@ -103,7 +103,7 @@ then
 fi
 
 ## Installing the base packages
-# TODO: Read the package list from a config file
+# TODO: How about choosing the fastest mirror?
 pacstrap /mnt base linux linux-firmware
 
 ## Generating fstab
@@ -118,12 +118,12 @@ cp ~/arch-install/x86_64/01_repo.sh /mnt
 arch-chroot /mnt bash /01_repo.sh
 
 ## With the repo in place we can start running the individual scripts.
-arch-chroot /mnt bash /root/arch-install/02_keymap.sh
-arch-chroot /mnt bash /root/arch-install/03_timezone.sh $_TIMEZONE
-arch-chroot /mnt bash /root/arch-install/04_hostname.sh $_HOSTNAME
-arch-chroot /mnt bash /root/arch-install/05_locale.sh
-arch-chroot /mnt bash /root/arch-install/06_root.sh $ROOTPASS
-arch-chroot /mnt bash /root/arch-install/07_grub.sh $GRUBDESTDISK
-arch-chroot /mnt bash /root/arch-install/08_ssh.sh $SSHINSTALL
-arch-chroot /mnt bash /root/arch-install/09_nm.sh $NMINSTALL
+arch-chroot /mnt bash /root/arch-install/x86_64/02_keymap.sh
+arch-chroot /mnt bash /root/arch-install/x86_64/03_timezone.sh $_TIMEZONE
+arch-chroot /mnt bash /root/arch-install/x86_64/04_hostname.sh $_HOSTNAME
+arch-chroot /mnt bash /root/arch-install/x86_64/05_locale.sh
+arch-chroot /mnt bash /root/arch-install/x86_64/06_root.sh $ROOTPASS
+arch-chroot /mnt bash /root/arch-install/x86_64/07_grub.sh $GRUBDESTDISK
+arch-chroot /mnt bash /root/arch-install/x86_64/08_ssh.sh $SSHINSTALL
+arch-chroot /mnt bash /root/arch-install/x86_64/09_nm.sh $NMINSTALL
 exit 0
