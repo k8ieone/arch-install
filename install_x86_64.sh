@@ -6,7 +6,7 @@ green=$(tput setaf 2)
 reset=$(tput sgr0)
 
 # Check internet access
-if [[ curl -Is http://archlinux.org/ | head -1 | grep 200 ]]
+if curl -Is http://archlinux.org/ | head -1 | grep 200
 then
     :
 else
