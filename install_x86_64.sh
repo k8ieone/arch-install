@@ -54,6 +54,7 @@ fi
 echo -n "Enter your desired hostname: "
 read -r _HOSTNAME
 ## Ask about the timezone
+# TODO: Check if the timezone exists
 echo -n "Enter your timezone (ex. Europe/Prague): "
 read -r _TIMEZONE
 ## Ask about the root password
@@ -62,13 +63,14 @@ while [[ $ROOTPASS != $ROOTPASS2 ]]
 do
     echo -n "Enter your new root password: "
     read -rs ROOTPASS
+    echo
     echo -n "Please enter it again: "
     read -rs ROOTPASS2
+    echo
     if [[ $ROOTPASS != $ROOTPASS2 ]]
     then
         echo "${red}The passwords don't match!${reset}"
         echo "Please try again..."
-        echo
     fi
 done
 ## Ask about NetworkManager and OpenSSH
