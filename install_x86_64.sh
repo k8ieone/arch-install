@@ -56,7 +56,7 @@ read -r _HOSTNAME
 echo -n "Enter your timezone (ex. Europe/Prague): "
 read -r _TIMEZONE
 ## Ask about the root password
-$ROOTPASS = "asdf"
+$ROOTPASS="asdf"
 while [[ $ROOTPASS != $ROOTPASS2 ]]
 do
     echo -n "Enter your new root password: "
