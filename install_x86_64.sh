@@ -112,7 +112,9 @@ echo -n "(y/N): "
 read -r DOOOM
 ## Ask what type of setup should be installed
 echo "What setup type do you want?"
-echo -n "Available options are: [ plasma, headless ]: "
+echo "Available options are:"
+echo "1 - satcom886's headless setup"
+echo "2 - satcom886's Plasma setup"
 read -r SETUPTYPE
 
 # Below, we actually start doing stuff.
@@ -170,11 +172,11 @@ arch-chroot /mnt bash /root/arch-install/x86_64/10_user.sh $_USERNAME $USERPASS 
 arch-chroot /mnt bash /root/arch-install/x86_64/11_swap.sh $DOSWAP $SWAPSIZE
 arch-chroot /mnt bash /root/arch-install/x86_64/12_earlyoom.sh $DOOOM
 arch-chroot /mnt bash /root/arch-install/x86_64/13_basics
-if [[ $SETUPTYPE == "plasma" ]]
+if [[ $SETUPTYPE == "1" ]]
 then
-    arch-chroot /mnt bash /root/arch-install/x86_64/aa_plasma.sh
-else if [[ $SETUPTYPE == "headless" ]]
+    arch-chroot /mnt bash /root/arch-install/x86_64/s886_headless.sh $_USERNAME
+else if [[ $SETUPTYPE == "2" ]]
 then
-    arch-chroot /mnt bash /root/arch-install/x86_64/ab_headless.sh
+    arch-chroot /mnt bash /root/arch-install/x86_64/s886_plasma.sh
 fi
 exit 0
