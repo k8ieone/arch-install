@@ -14,7 +14,7 @@ echo "                                                           "
 echo
 
 # Install Netdata and BOINC
-pacman -S --noconfirm boinc-nox netdata thefuck
+pacman -S --noconfirm boinc-nox netdata thefuck neofetch
 
 # Set BOINC password and enable remote access
 echo "<cc_config>" > /var/lib/boinc/cc_config.xml
@@ -55,3 +55,5 @@ echo "neofetch" >> /tmp/zshrc
 ## Copy the file into the user's home
 install -m 644 /tmp/zshrc /home/$1/.zshrc
 chown $1:$1 /home/$1/.zshrc
+## Change the user's default shell to zsh
+chsh -s /bin/zsh $1
