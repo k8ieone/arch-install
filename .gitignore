@@ -1,4 +1,6 @@
-configs
+30-touchpad.conf
+leds.service
+user
 arm
 020*
 030*
