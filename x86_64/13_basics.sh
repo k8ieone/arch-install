@@ -10,7 +10,7 @@ echo "include \"/usr/share/nano/*.nanorc\"" | sudo tee -a /etc/nanorc
 echo "include \"/usr/share/nano-syntax-highlighting/*.nanorc\"" | sudo tee -a /etc/nanorc
 
 # Enable some basic services
-systemctl enable rngd man-db.timer updatedb.timer
+systemctl enable rngd man-db.timer updatedb.timer systemd-resolved.service
 
 # Enable .local mDNS resolution
 # Use > for overwriting the config
