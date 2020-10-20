@@ -175,7 +175,7 @@ arch-chroot /mnt bash /root/arch-install/x86_64/12_earlyoom.sh $DOOOM
 arch-chroot /mnt bash /root/arch-install/x86_64/13_basics.sh $_USERNAME
 if [[ $SETUPTYPE == "1" ]]
 then
-    arch-chroot /mnt bash /root/arch-install/x86_64/s886_headless.sh $_USERNAME
+    arch-chroot /mnt bash /root/arch-install/x86_64/setuptypes/s886_headless.sh $_USERNAME
 elif [[ $SETUPTYPE == "2" ]]
 then
     arch-chroot /mnt bash /root/arch-install/x86_64/setuptypes/s886_plasma.sh
