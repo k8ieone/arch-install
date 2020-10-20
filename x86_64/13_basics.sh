@@ -19,9 +19,9 @@ systemctl enable rngd man-db.timer updatedb.timer
 install -m 644 /root/arch-install/configs/system-wide/nsswitch.conf /etc
 
 # Install yay
-cd ~
+cd /home/$1
 sudo -u $1 git clone https://aur.archlinux.org/yay.git
 cd yay
 sudo -u $1 makepkg -Asi
-cd ~
+cd /home/$1
 rm -r yay
