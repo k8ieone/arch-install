@@ -176,7 +176,7 @@ arch-chroot /mnt bash /root/arch-install/x86_64/13_basics
 if [[ $SETUPTYPE == "1" ]]
 then
     arch-chroot /mnt bash /root/arch-install/x86_64/s886_headless.sh $_USERNAME
-else if [[ $SETUPTYPE == "2" ]]
+elif [[ $SETUPTYPE == "2" ]]
 then
     arch-chroot /mnt bash /root/arch-install/x86_64/s886_plasma.sh
 fi
