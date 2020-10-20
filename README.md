@@ -8,11 +8,12 @@ This is a set of bash scripts that will install Arch Linux for you.
 This tool is undergoing a major rewrite. At the moment the "headless" setup option works. Plasma is a work in progress.
 # Usage:
 ## Before you begin:
-1. Install `git` with `pacman -Sy git`
-1. Make your partitions. I usually use `cfdisk`
+1. Download and boot the stock [Arch Linux ISO](https://www.archlinux.org/download/).
+1. Install `git` with `pacman -Sy git`.
+1. Make your partitions. I usually use `cfdisk`.
  - For Legacy BIOS installations you only need one.
  - For UEFI systems, you will also need to make a small EFI System Partition (ESP). I recommend 1GB.
-3. Clone this repo and start the install script!
+4. Clone this repo and start the install script!
 ## What now?
 Just run the `install_x86_64.sh` script and follow the script's instructions.
 # Why?
