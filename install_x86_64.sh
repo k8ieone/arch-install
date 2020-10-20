@@ -172,7 +172,7 @@ arch-chroot /mnt bash /root/arch-install/x86_64/09_nm.sh $NMINSTALL
 arch-chroot /mnt bash /root/arch-install/x86_64/10_user.sh $_USERNAME $USERPASS $SSHINSTALL
 arch-chroot /mnt bash /root/arch-install/x86_64/11_swap.sh $DOSWAP $SWAPSIZE
 arch-chroot /mnt bash /root/arch-install/x86_64/12_earlyoom.sh $DOOOM
-arch-chroot /mnt bash /root/arch-install/x86_64/13_basics.sh
+arch-chroot /mnt bash /root/arch-install/x86_64/13_basics.sh $_USERNAME
 if [[ $SETUPTYPE == "1" ]]
 then
     arch-chroot /mnt bash /root/arch-install/x86_64/s886_headless.sh $_USERNAME
