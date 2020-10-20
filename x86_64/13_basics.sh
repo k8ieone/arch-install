@@ -22,6 +22,7 @@ install -m 644 /root/arch-install/configs/system-wide/nsswitch.conf /etc
 cd /home/$1
 sudo -u $1 git clone https://aur.archlinux.org/yay.git
 cd yay
+# Don't ask when installing the dependencies
 sudo -u $1 makepkg -Asi
 cd /home/$1
 rm -r yay
