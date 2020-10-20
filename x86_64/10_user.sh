@@ -5,12 +5,6 @@
 # Create the user
 useradd -m $1
 
-# Clone to the new user's home directory
-cd /home/$1
-git clone https://github.com/satcom886/arch-install
-chown -R $1:$1 arch-install
-rm -r /root/arch-install
-
 # Change the user's password
 echo "$1:$2" | chpasswd
 
