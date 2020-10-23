@@ -10,7 +10,7 @@ echo "include \"/usr/share/nano/*.nanorc\"" | sudo tee -a /etc/nanorc
 echo "include \"/usr/share/nano-syntax-highlighting/*.nanorc\"" | sudo tee -a /etc/nanorc
 
 # Enable some basic services
-systemctl enable rngd man-db.timer updatedb.timer systemd-resolved.service
+systemctl enable rngd man-db.timer updatedb.timer systemd-resolved.service avahi-daemon.service
 
 # Enable .local mDNS resolution
 sed -i 's/hosts:.*/hosts: files mymachines myhostname mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] dns/g' /etc/nsswitch.conf
