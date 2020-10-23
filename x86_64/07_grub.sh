@@ -5,14 +5,20 @@
 # Install GRUB
 if [ -d /sys/firmware/efi/efivars ]
 then
-    pacman -S --noconfirm grub efibootmgr which
+    pacman -S --noconfirm grub efibootmgr sed
     cd /
     grub-install --target=x86_64-efi --efi-directory=boot --bootloader-id=Arch
-    install -m 644 /root/arch-install/configs/system-wide/grub /etc/default/grub
-    grub-mkconfig -o /boot/grub/grub.cfg
 else
-    pacman -S --noconfirm grub which
-    grub-install --target=i386-pc /dev/$1
-    install -m 644 /root/arch-install/configs/system-wide/grub /etc/default/grub
-    grub-mkconfig -o /boot/grub/grub.cfg
+    pacman -S --noconfirm grub sed
+    grub-install --target=i386-pc /dev/$1    
 fi
+
+# Set different defaults
+sed -i 's/GRUB_TIMEOUT.*/GRUB_TIMEOUT=1/g' /etc/default/grub
+sed -i 's/GRUB_DEFAULT/GRUB_DEFAULT=saved/g' /etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT="sysrq_always_enabled=1"/g' /etc/default/grub
+echo "GRUB_SAVEDEFAULT=true" >> /etc/default/grub
+echo "GRUB_TIMEOUT_STYLE=hidden" >> /etc/default/grub
+
+# Generate the GRUB config
+grub-mkconfig -o /boot/grub/grub.cfg
