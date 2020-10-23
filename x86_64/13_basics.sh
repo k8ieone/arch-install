@@ -13,10 +13,7 @@ echo "include \"/usr/share/nano-syntax-highlighting/*.nanorc\"" | sudo tee -a /e
 systemctl enable rngd man-db.timer updatedb.timer systemd-resolved.service
 
 # Enable .local mDNS resolution
-# Use > for overwriting the config
-# and >> for appending to the config
-# so I don't have to copy the config file here
-install -m 644 /root/arch-install/configs/system-wide/nsswitch.conf /etc
+sed -i 's/hosts:.*/hosts: files mymachines myhostname mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] dns/g' /etc/nsswitch.conf
 
 # Install yay
 cd /home/$1
