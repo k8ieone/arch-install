@@ -23,7 +23,7 @@ echo "       <use_all_gpus>1</use_all_gpus>" >> /var/lib/boinc/cc_config.xml
 echo "       <allow_remote_gui_rpc>1</allow_remote_gui_rpc>" >> /var/lib/boinc/cc_config.xml
 echo "    </options>" >> /var/lib/boinc/cc_config.xml
 echo "</cc_config>" >> /var/lib/boinc/cc_config.xml
-echo "a" > /var/lib/boinc/gui_rpc_auth.cfg.xml
+echo "a" > /var/lib/boinc/gui_rpc_auth.cfg
 chown boinc:boinc /var/lib/boinc/cc_config.xml
 chown boinc:boinc /var/lib/boinc/gui_rpc_auth.cfg
 
