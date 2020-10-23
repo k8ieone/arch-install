@@ -15,3 +15,7 @@ then
 else
     echo "${red}Not${reset} installing NetworkManager."
 fi
+
+# Stop pings to archlinux.org
+echo "[connectivity]" >> /etc/NetworkManager/NetworkManager.conf
+echo "uri=" >> /etc/NetworkManager/NetworkManager.conf
