@@ -66,6 +66,9 @@ systemctl enable boinc-client.service netdata.service
 # Add the netdata user to the boinc group
 gpasswd -a netdata boinc
 
+# Enable access to Netdata from any host
+sed -e '/bind to = localhost/ s/^#*/#/' -i /etc/netdata/netdata.conf
+
 # Install and setup oh-my-zsh
 # yay -S zsh-autosuggestions-git
 sudo -u $1 yay --answerdiff "n" --mflags "--noconfirm" --batchinstall -S oh-my-zsh-git zsh-theme-powerlevel10k-git zsh-fast-syntax-highlighting-git
