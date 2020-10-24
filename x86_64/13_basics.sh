@@ -23,3 +23,7 @@ cd yay
 sudo -u $1 makepkg -Asi
 cd /home/$1
 rm -r yay
+
+# Enable color and verbose package lists in pacman.conf
+sed -i 's/#Color/Color/g' /etc/pacman.conf
+sed -i 's/#VerbosePkgLists/VerbosePkgLists/g' /etc/pacman.conf
