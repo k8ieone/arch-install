@@ -14,11 +14,12 @@ else
 fi
 
 # Set different defaults
-sed -i 's/GRUB_TIMEOUT.*/GRUB_TIMEOUT=1/g' /etc/default/grub
-sed -i 's/GRUB_DEFAULT/GRUB_DEFAULT=saved/g' /etc/default/grub
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT.*/GRUB_CMDLINE_LINUX_DEFAULT="sysrq_always_enabled=1"/g' /etc/default/grub
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /etc/default/grub
+sed -i 's/GRUB_DEFAULT=0/GRUB_DEFAULT=saved/g' /etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="sysrq_always_enabled=1"/g' /etc/default/grub
 echo "GRUB_SAVEDEFAULT=true" >> /etc/default/grub
 echo "GRUB_TIMEOUT_STYLE=hidden" >> /etc/default/grub
+echo "GRUB_DISABLE_SUBMENU=y" >> /etc/default/grub
 
 # Generate the GRUB config
 grub-mkconfig -o /boot/grub/grub.cfg
