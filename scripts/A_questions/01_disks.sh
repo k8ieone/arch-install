@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -n "Have you mounted the install destination to /mnt?"
+echo -n "Have you already mounted the install destination to /mnt? "
 echo -n "(y/N): "
 read -r MOUNTED
 if [[ $MOUNTED == n* || $MOUNTED == "" || $MOUNTED == N* ]]
@@ -29,11 +29,16 @@ then
         echo -n "(y/n): "
         read -r EFIFORMAT
     else
-        echo -n "Would you like to install GRUB?"
+        echo -n "Would you like to install GRUB? "
         echo -n "(Y/n): "
         read -r INSTALLGRUB
-        echo -n "Please enter the destination disk (not partition) for GRUB: /dev/"
-        read -r GRUBDESTDISK
+        if [[ $INSTALLGRUB == y* || $INSTALLGRUB == "" || $INSTALLGRUB == Y* ]]
+        then
+            echo -n "Please enter the destination disk (not partition) for GRUB: /dev/"
+            read -r GRUBDESTDISK
+        else
+            :
+        fi
     fi
 else
     :
