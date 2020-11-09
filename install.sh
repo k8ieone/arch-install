@@ -157,27 +157,27 @@ echo "MAKEFLAGS=\"-j\$(nproc)\"" >> /mnt/etc/makepkg.conf
 sudo sed --in-place 's/^#\s*\(%wheel\s\+ALL=(ALL)\s\+NOPASSWD:\s\+ALL\)/\1/' /mnt/etc/sudoers
 
 ## Run the script that sets up this repo inside the chroot
-cp ~/arch-install/x86_64/01_repo.sh /mnt
+cp ~/arch-install/scripts/B_components/01_repo.sh /mnt
 arch-chroot /mnt bash /01_repo.sh
 
 ## With the repo in place we can start running the individual scripts.
-arch-chroot /mnt bash /root/arch-install/x86_64/02_keymap.sh
-arch-chroot /mnt bash /root/arch-install/x86_64/03_timezone.sh $_TIMEZONE
-arch-chroot /mnt bash /root/arch-install/x86_64/04_hostname.sh $_HOSTNAME
-arch-chroot /mnt bash /root/arch-install/x86_64/05_locale.sh
-arch-chroot /mnt bash /root/arch-install/x86_64/06_root.sh $ROOTPASS
-arch-chroot /mnt bash /root/arch-install/x86_64/07_grub.sh $GRUBDESTDISK
-arch-chroot /mnt bash /root/arch-install/x86_64/08_ssh.sh $SSHINSTALL
-arch-chroot /mnt bash /root/arch-install/x86_64/09_nm.sh $NMINSTALL
-arch-chroot /mnt bash /root/arch-install/x86_64/10_user.sh $_USERNAME $USERPASS $SSHINSTALL
-arch-chroot /mnt bash /root/arch-install/x86_64/11_swap.sh $DOSWAP $SWAPSIZE
-arch-chroot /mnt bash /root/arch-install/x86_64/12_earlyoom.sh $DOOOM
-arch-chroot /mnt bash /root/arch-install/x86_64/13_basics.sh $_USERNAME
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/02_keymap.sh
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/03_timezone.sh $_TIMEZONE
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/04_hostname.sh $_HOSTNAME
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/05_locale.sh
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/06_root.sh $ROOTPASS
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/07_grub.sh $GRUBDESTDISK
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/08_ssh.sh $SSHINSTALL
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/09_nm.sh $NMINSTALL
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/10_user.sh $_USERNAME $USERPASS $SSHINSTALL
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/11_swap.sh $DOSWAP $SWAPSIZE
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/12_earlyoom.sh $DOOOM
+arch-chroot /mnt bash /root/arch-install/scripts/B_components/13_others.sh $_USERNAME
 if [[ $SETUPTYPE == "1" ]]
 then
-    arch-chroot /mnt bash /root/arch-install/x86_64/setuptypes/s886_headless.sh $_USERNAME
+    arch-chroot /mnt bash /root/arch-install/scripts/C_setuptypes/s886_headless.sh $_USERNAME
 elif [[ $SETUPTYPE == "2" ]]
 then
-    arch-chroot /mnt bash /root/arch-install/x86_64/setuptypes/s886_plasma.sh
+    arch-chroot /mnt bash /root/arch-install/scripts/C_setuptypes/s886_plasma.sh
 fi
 exit 0
