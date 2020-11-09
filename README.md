@@ -15,6 +15,14 @@ This tool is undergoing a major rewrite. At the moment the "headless" setup opti
  - For UEFI systems, you will also need to make a small EFI System Partition (ESP). I recommend 1GB.
 4. Clone this repo and start the install script!
 ## What now?
-Just run the `install_x86_64.sh` script and follow the script's instructions.
+Just run the `install.sh` script and follow the script's instructions.
+## Customization
+Feel free to customize the script to your liking. In fact, it was made to be easily customizable!
+### Terminology
+ - **Questions** are asked in all the files in `scripts/A_questions`.
+ - All **actions** before chrooting into the install destination are done in `scripts/B_actions`.
+ - Scripts that are done inside the chroot are located in `scripts/C_chroot`.
+ - All customizations (like additional desktop applications, user config files, servers, etc.) are done in the very last step. All **setuptypes** are located in `scripts/D_setuptypes`. This is where I expect most customizations will be done.
+
 # Why?
 If you are installing Arch on lots of computers (like me) it can get pretty annoying and repetitive pretty quickly. This project aims to automate, or at least simplify the process.
