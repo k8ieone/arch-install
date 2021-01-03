@@ -23,4 +23,7 @@ then
 elif [[ $SETUPTYPE == "2" ]]
 then
     arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_plasma.sh
+elif [[ $SETUPTYPE == "3" ]]
+then
+    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_gnome.sh
 fi
