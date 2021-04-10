@@ -22,8 +22,8 @@ then
     arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_headless.sh $_USERNAME
 elif [[ $SETUPTYPE == "2" ]]
 then
-    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_plasma.sh
+    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_plasma.sh $_USERNAME
 elif [[ $SETUPTYPE == "3" ]]
 then
-    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_gnome.sh
+    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_gnome.sh $_USERNAME
 fi
