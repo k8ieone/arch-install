@@ -2,6 +2,11 @@
 
 # Usage: ./07_grub.sh INSTALLGRUB GRUBDESTDISK
 
+# COLORS
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+reset=$(tput sgr0)
+
 # Install GRUB
 if [[ $1 == y* || $1 == "" || $1 == Y* ]]
 then
@@ -26,5 +31,5 @@ then
     # Generate the GRUB config
     grub-mkconfig -o /boot/grub/grub.cfg
 else
-    :
+    echo "${red}Not${reset} installing GRUB."
 fi
