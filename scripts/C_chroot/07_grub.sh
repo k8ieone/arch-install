@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Usage: ./07_grub.sh INSTALLGRUB GRUBDESTDISK
+# Usage: ./07_grub.sh GRUBDESTDISK INSTALLGRUB
 
 # COLORS
 red=$(tput setaf 1)
@@ -8,7 +8,7 @@ green=$(tput setaf 2)
 reset=$(tput sgr0)
 
 # Install GRUB
-if [[ $1 == y* || $1 == "" || $1 == Y* ]]
+if [[ $2 == y* || $2 == "" || $2 == Y* ]]
 then
     if [ -d /sys/firmware/efi/efivars ]
     then
@@ -17,7 +17,7 @@ then
         grub-install --target=x86_64-efi --efi-directory=boot --bootloader-id=Arch
     else
         pacman -S --noconfirm grub sed
-        grub-install --target=i386-pc /dev/$2
+        grub-install --target=i386-pc /dev/$1
     fi
 
     # Set different defaults
