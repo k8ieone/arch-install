@@ -32,7 +32,7 @@ echo "source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme" >> /tmp
 echo "source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" >> /tmp/zshrc
 echo "POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true" >> /tmp/zshrc
 echo "DISABLE_AUTO_UPDATE=\"true\"" >> /tmp/zshrc
-echo "plugins=(git ssh-agent archlinux systemd)" >> /tmp/zshrc
+echo "plugins=(git ssh-agent archlinux systemd docker colored-man-pages)" >> /tmp/zshrc
 echo "ZSH_CACHE_DIR=\$HOME/.cache/oh-my-zsh" >> /tmp/zshrc
 echo "if [[ ! -d \$ZSH_CACHE_DIR ]]; then" >> /tmp/zshrc
 echo "  mkdir \$ZSH_CACHE_DIR" >> /tmp/zshrc
