@@ -17,12 +17,12 @@ sed -i 's/hosts:.*/hosts: files mymachines myhostname mdns_minimal [NOTFOUND=ret
 
 # Install yay
 cd /home/$1
-sudo -u $1 git clone https://aur.archlinux.org/yay.git
-cd yay
+sudo -u $1 git clone https://aur.archlinux.org/pikaur.git
+cd pikaur
 # Don't ask when installing the dependencies
 sudo -u $1 makepkg -Asi
 cd /home/$1
-rm -r yay
+rm -r pikaur
 
 # Enable color and verbose package lists in pacman.conf
 sed -i 's/#Color/Color/g' /etc/pacman.conf
