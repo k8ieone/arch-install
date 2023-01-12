@@ -16,8 +16,8 @@ then
     echo "[connectivity]" >> /etc/NetworkManager/NetworkManager.conf
     echo "uri=" >> /etc/NetworkManager/NetworkManager.conf
     # Enable mDNS by default
-    echo "[connection]" >> /etc/NetworkManager/NetworkManager.conf
-    echo "connection.mdns=2" >> /etc/NetworkManager/NetworkManager.conf
+    echo "[connection]" >> /etc/NetworkManager/conf.d/globals.conf
+    echo "mdns=2" >> /etc/NetworkManager/conf.d/globals.conf
 else
     echo "${red}Not${reset} installing NetworkManager."
 fi
