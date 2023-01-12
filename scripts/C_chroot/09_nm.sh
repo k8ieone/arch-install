@@ -15,6 +15,9 @@ then
     # Stop pings to archlinux.org
     echo "[connectivity]" >> /etc/NetworkManager/NetworkManager.conf
     echo "uri=" >> /etc/NetworkManager/NetworkManager.conf
+    # Enable mDNS by default
+    echo "[connection]" >> /etc/NetworkManager/conf.d/mdns.conf
+    echo "connection.mdns=2" >> /etc/NetworkManager/conf.d/mdns.conf
 else
     echo "${red}Not${reset} installing NetworkManager."
 fi
