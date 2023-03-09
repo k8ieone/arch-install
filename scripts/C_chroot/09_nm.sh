@@ -20,4 +20,7 @@ then
     echo "mdns=2" >> /etc/NetworkManager/conf.d/globals.conf
 else
     echo "${red}Not${reset} installing NetworkManager."
+    pacman -S --noconfirm nss-mdns
+    systemctl enable avahi-daemon.service
+    sed -i 's/hosts:.*/hosts: files mymachines myhostname mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] dns/g' /etc/nsswitch.conf
 fi
