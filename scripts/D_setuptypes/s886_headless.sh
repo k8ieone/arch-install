@@ -35,7 +35,6 @@ echo "source \$ZSH/oh-my-zsh.sh" >> /tmp/zshrc
 echo "PATH=\$PATH:~/.local/bin" >> /tmp/zshrc
 echo "eval \$(thefuck --alias)" >> /tmp/zshrc
 echo "EDITOR=nano" >> /tmp/zshrc
-echo "neofetch" >> /tmp/zshrc
 ## Copy the file into the user's home
 install -m 644 /tmp/zshrc /home/$1/.zshrc
 chown $1:$1 /home/$1/.zshrc
