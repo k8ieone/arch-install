@@ -24,7 +24,7 @@ systemctl enable gdm.service
 
 # Install and setup oh-my-zsh
 # yay -S zsh-autosuggestions-git
-sudo -u $1 yay --answerdiff "n" --mflags "--noconfirm" --batchinstall -S oh-my-zsh-git zsh-theme-powerlevel10k-git zsh-fast-syntax-highlighting-git
+sudo -u $1 pikaur --noconfirm -S oh-my-zsh-git zsh-theme-powerlevel10k-git zsh-fast-syntax-highlighting-git
 ## Build a .zshrc file
 echo "ZSH=/usr/share/oh-my-zsh/" > /tmp/zshrc
 echo "source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme" >> /tmp/zshrc
