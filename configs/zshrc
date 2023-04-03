@@ -24,9 +24,12 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
 
-PATH=$PATH:~/.local/bin
-export EDITOR=nano
-neofetch
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+export EDITOR=micro
+export THEFUCK_EXCLUDE_RULES=fix_file
 eval $(thefuck --alias)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
