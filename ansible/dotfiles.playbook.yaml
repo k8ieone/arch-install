@@ -24,3 +24,7 @@
       copy:
         src: configs/lsp-settings
         dest: ~/.config/lvim
+    - name: Copy pikaur config
+      copy:
+        src: configs/pikaur.conf
+        dest: ~/.config/pikaur.conf
