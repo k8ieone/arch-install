@@ -5,11 +5,11 @@
   tasks:
     - name: Copy the zshrc
       copy:
-        src: configs/zshrc
+        src: dotfiles/zshrc
         dest: ~/.zshrc
     - name: Copy the p10k config
       copy:
-        src: configs/p10k.zsh
+        src: dotfiles/p10k.zsh
         dest: ~/.p10k.zsh
     - name: Make sure the login shell is ZSH
       become: true
@@ -18,13 +18,13 @@
         shell: /bin/zsh
     - name: Copy Lunar Vim configs
       copy:
-        src: configs/config.lua
+        src: dotfiles/config.lua
         dest: ~/.config/lvim/config.lua
     - name: Copy LSP settings
       copy:
-        src: configs/lsp-settings
+        src: dotfiles/lsp-settings
         dest: ~/.config/lvim
     - name: Copy pikaur config
       copy:
-        src: configs/pikaur.conf
+        src: dotfiles/pikaur.conf
         dest: ~/.config/pikaur.conf
