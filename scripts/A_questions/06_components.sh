@@ -9,6 +9,10 @@ read -r SSHINSTALL
 echo -n "Do you want to install NetworkManager? "
 echo -n "(Y/n): "
 read -r NMINSTALL
+## Ask about EarlyOOM
+echo -n "Do you wish to setup systemd-oomd (killing processes when running out of memory)? "
+echo -n "(Y/n): "
+read -r DOOOM
 ## Ask about SWAP
 echo -n "Do you wish to setup a SWAP file? "
 echo -n "(y/N): "
@@ -18,7 +22,3 @@ then
     echo -n "Enter the SWAP file size (e.g.: 2G or 512M): "
     read -r SWAPSIZE
 fi
-## Ask about EarlyOOM
-echo -n "Do you wish to setup EarlyOOM (killing processes when running out of memory)? "
-echo -n "(y/N): "
-read -r DOOOM
