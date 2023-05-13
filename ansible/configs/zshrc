@@ -6,31 +6,36 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ZSH=/usr/share/oh-my-zsh/
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 DISABLE_AUTO_UPDATE="true"
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+plugins=(git archlinux systemd docker docker-compose colored-man-pages kubectl)
 
-plugins=(git ssh-agent archlinux systemd docker ansible)
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+	mkdir $ZSH_CACHE_DIR
+fi
 
-if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
+if [ -d "$HOME/.local/bin" ] ; then
+	PATH="$HOME/.local/bin:$PATH"
 fi
 
 source $ZSH/oh-my-zsh.sh
 
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
-
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-export EDITOR=micro
 export THEFUCK_EXCLUDE_RULES=fix_file
 eval $(thefuck --alias)
+export EDITOR=lvim
+source /etc/profile.d/vte.sh
+
+alias sshh="ssh Amun.local -p 2222"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# grep -rl something . | xargs sed -i 's/something/somethingelse/g'
+
