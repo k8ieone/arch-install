@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Usage: ./s886_headless.sh $_USERNAME
+# Usage: ./s886_gnome.sh $_USERNAME
 
 # Splash
 echo "   _____      _______ _____ ____  __  __  ___   ___    __  "
@@ -13,30 +13,29 @@ echo "                                                           "
 echo "                                                           "
 echo
 
-# Install tools
-pacman -S --noconfirm thefuck neofetch
+# Install Ansible
+pacman -S --noconfirm --needed ansible
 
-# Install and setup oh-my-zsh
-# yay -S zsh-autosuggestions-git
-sudo -u $1 pikaur --noconfirm -S oh-my-zsh-git zsh-theme-powerlevel10k-git zsh-fast-syntax-highlighting-git
-## Build a .zshrc file
-echo "ZSH=/usr/share/oh-my-zsh/" > /tmp/zshrc
-echo "source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme" >> /tmp/zshrc
-# echo "source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> /tmp/zsrhc
-echo "source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" >> /tmp/zshrc
-echo "POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true" >> /tmp/zshrc
-echo "DISABLE_AUTO_UPDATE=\"true\"" >> /tmp/zshrc
-echo "plugins=(git archlinux systemd python docker docker-compose)" >> /tmp/zshrc
-echo "ZSH_CACHE_DIR=\$HOME/.cache/oh-my-zsh" >> /tmp/zshrc
-echo "if [[ ! -d \$ZSH_CACHE_DIR ]]; then" >> /tmp/zshrc
-echo "  mkdir \$ZSH_CACHE_DIR" >> /tmp/zshrc
-echo "fi" >> /tmp/zshrc
-echo "source \$ZSH/oh-my-zsh.sh" >> /tmp/zshrc
-echo "PATH=\$PATH:~/.local/bin" >> /tmp/zshrc
-echo "eval \$(thefuck --alias)" >> /tmp/zshrc
-echo "EDITOR=nano" >> /tmp/zshrc
-## Copy the file into the user's home
-install -m 644 /tmp/zshrc /home/$1/.zshrc
-chown $1:$1 /home/$1/.zshrc
-## Change the user's default shell to zsh
-chsh -s /bin/zsh $1
+# Install oh-my-zsh and plugins
+sudo -u $1 pikaur -S --noconfirm --needed oh-my-zsh-git zsh-theme-powerlevel10k zsh-syntax-highlighting zsh-autosuggestions
+
+# Install neovim and plugins
+sudo -u $1 pikaur -S neovim
+
+# Install command line utilities
+pacman -S --noconfirm --needed thefuck
+
+# Install fonts
+pacman -S --noconfirm --needed ttf-ubuntu-mono-nerd
+
+# Go to the directory with playbooks
+cd /root/arch-install/ansible
+
+# Run the dotfiles playbook
+sudo -u $1 ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 dotfiles.playbook.yaml
+
+# Clone LunarVim
+sudo -u $1 LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+
+# Run the system configs playbook
+# TODO: Create the system configs playbook
