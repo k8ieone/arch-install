@@ -29,7 +29,7 @@ source $ZSH/oh-my-zsh.sh
 
 export THEFUCK_EXCLUDE_RULES=fix_file
 eval $(thefuck --alias)
-export EDITOR=lvim
+export EDITOR=nano
 source /etc/profile.d/vte.sh
 
 alias sshh="ssh Amun.local -p 2222"
