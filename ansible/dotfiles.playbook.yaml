@@ -16,14 +16,15 @@
       user:
         name: "{{ the_user }}"
         shell: /bin/zsh
-    - name: Copy Lunar Vim configs
+    - name: Make sure the Lite-XL directory exists
+      ansible.builtin.file:
+        path: ~/.config/lite-xl
+        state: directory
+        mode: '0755'
+    - name: Copy Lite-XL config
       copy:
-        src: dotfiles/config.lua
-        dest: ~/.config/lvim/config.lua
-    - name: Copy LSP settings
-      copy:
-        src: dotfiles/lsp-settings
-        dest: ~/.config/lvim
+        src: dotfiles/init.lua
+        dest: ~/.config/lite-xl/init.lua
     - name: Copy pikaur config
       copy:
         src: dotfiles/pikaur.conf

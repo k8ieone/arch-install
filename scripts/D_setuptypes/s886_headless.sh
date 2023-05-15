@@ -19,23 +19,14 @@ pacman -S --noconfirm --needed ansible
 # Install oh-my-zsh and plugins
 sudo -u $1 pikaur -S --noconfirm --needed oh-my-zsh-git zsh-theme-powerlevel10k zsh-syntax-highlighting zsh-autosuggestions
 
-# Install neovim and plugins
-sudo -u $1 pikaur -S neovim
-
 # Install command line utilities
 pacman -S --noconfirm --needed thefuck
-
-# Install fonts
-pacman -S --noconfirm --needed ttf-ubuntu-mono-nerd
 
 # Go to the directory with playbooks
 cd /root/arch-install/ansible
 
 # Run the dotfiles playbook
 sudo -u $1 ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 dotfiles.playbook.yaml
-
-# Clone LunarVim
-sudo -u $1 LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 
 # Run the system configs playbook
 # TODO: Create the system configs playbook

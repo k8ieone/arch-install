@@ -1,5 +1,3 @@
--- lpm install minimap language_yaml motiontrail autoinsert editorconfig evergreen lsp widget snippets lintplus gitdiff_highlight gitstatus indentguide language_yaml language_ignore
-
 -- put user settings here
 -- this module will be loaded after everything else when the application starts
 -- it will be automatically reloaded when saved
@@ -8,6 +6,12 @@ local core = require "core"
 local keymap = require "core.keymap"
 local config = require "core.config"
 local style = require "core.style"
+
+local fontconfig = require "plugins.fontconfig"
+fontconfig.use {
+     font = { name = "sans", size = 13 * SCALE },
+     code_font = { name = "monospace", size = 13 * SCALE }
+}
 
 local lspconfig = require "plugins.lsp.config"
 
