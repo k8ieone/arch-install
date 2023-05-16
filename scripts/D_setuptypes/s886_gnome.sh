@@ -24,4 +24,5 @@ pacman -Rns --noconfirm gnome-software totem gnome-music gnome-photos orca yelp 
 # Install Lite-XL plugins
 lpm install minimap language_yaml motiontrail autoinsert bracketmatch editorconfig \
             evergreen lsp widget snippets lintplus gitdiff_highlight gitstatus \
-            indentguide language_yaml language_ignore language_sh fontconfig nerdicons
+            indentguide language_yaml language_ignore language_sh fontconfig nerdicons \
+            search_ui autowrap
