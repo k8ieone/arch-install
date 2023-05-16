@@ -13,6 +13,8 @@ fontconfig.use {
      code_font = { name = "monospace", size = 13 * SCALE }
 }
 
+config.plugins.trimwhitespace = true
+
 local lspconfig = require "plugins.lsp.config"
 
 lspconfig.yamlls.setup {
