@@ -25,6 +25,15 @@
       copy:
         src: dotfiles/init.lua
         dest: ~/.config/lite-xl/init.lua
+    - name: Make sure the Lite-XL fonts directory exists
+      ansible.builtin.file:
+        path: ~/.config/lite-xl/fonts
+        state: directory
+        mode: '0755'
+    - name: Download Nerd icon font for Lite-XL
+      ansible.builtin.get_url:
+        url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf
+        dest: ~/.config/lite-xl/fonts/icon-nerd-font.ttf
     - name: Copy pikaur config
       copy:
         src: dotfiles/pikaur.conf
