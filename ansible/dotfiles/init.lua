@@ -17,6 +17,8 @@ config.plugins.trimwhitespace = {["enabled"] = false}
 
 local lspconfig = require "plugins.lsp.config"
 
+lspconfig.pyright.setup()
+
 lspconfig.yamlls.setup {
   settings = {
     yaml = {
