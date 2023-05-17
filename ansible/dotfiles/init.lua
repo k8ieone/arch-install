@@ -13,7 +13,7 @@ fontconfig.use {
      code_font = { name = "monospace", size = 13 * SCALE }
 }
 
-config.plugins.trimwhitespace = false
+config.plugins.trimwhitespace = {["enabled"] = false}
 
 local lspconfig = require "plugins.lsp.config"
 
