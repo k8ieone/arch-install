@@ -22,7 +22,7 @@ sudo -u $1 pikaur -S --noconfirm --needed mpv gnome-shell-extension-appindicator
 pacman -Rns --noconfirm gnome-software totem gnome-music gnome-photos orca yelp gnome-user-docs
 
 # Install Lite-XL plugins
-lpm install minimap language_yaml motiontrail autoinsert bracketmatch editorconfig \
+lpm install minimap motiontrail autoinsert bracketmatch editorconfig \
             lsp widget snippets lintplus gitdiff_highlight gitstatus \
-            indentguide language_yaml language_ignore language_sh fontconfig nerdicons \
-            search_ui
+            indentguide search_ui fontconfig nerdicons \
+            language_yaml language_containerfile language_ignore language_sh
