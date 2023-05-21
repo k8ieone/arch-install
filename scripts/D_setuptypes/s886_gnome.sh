@@ -25,4 +25,4 @@ pacman -Rns --noconfirm gnome-software totem gnome-music gnome-photos orca yelp 
 lpm install minimap motiontrail autoinsert bracketmatch editorconfig \
             lsp widget snippets lintplus gitdiff_highlight gitstatus \
             indentguide search_ui fontconfig nerdicons \
-            language_yaml language_containerfile language_ignore language_sh
+            language_yaml language_ignore language_sh
