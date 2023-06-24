@@ -21,19 +21,23 @@
         path: ~/.config/lite-xl
         state: directory
         mode: '0755'
-    - name: Copy Lite-XL config
+    - name: Copy Pragtical init
       copy:
         src: dotfiles/init.lua
-        dest: ~/.config/lite-xl/init.lua
-    - name: Make sure the Lite-XL fonts directory exists
+        dest: ~/.config/pragtical/init.lua
+    - name: Copy Pragtical config
+      copy:
+        src: dotfiles/user_settings.lua
+        dest: ~/.config/pragtical/user_settings.lua
+    - name: Make sure the Pragtical fonts directory exists
       ansible.builtin.file:
-        path: ~/.config/lite-xl/fonts
+        path: ~/.config/pragtical/fonts
         state: directory
         mode: '0755'
-    - name: Download Nerd icon font for Lite-XL
+    - name: Download Nerd icon font for Pragtical
       ansible.builtin.get_url:
         url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf
-        dest: ~/.config/lite-xl/fonts/icon-nerd-font.ttf
+        dest: ~/.config/pragtical/fonts/icon-nerd-font.ttf
     - name: Copy pikaur config
       copy:
         src: dotfiles/pikaur.conf
