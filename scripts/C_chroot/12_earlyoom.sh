@@ -11,4 +11,5 @@ then
     echo "ManagedOOMMemoryPressure=kill" >> /etc/systemd/system/docker.slice
     echo "[Slice]" >> /etc/systemd/system/user.slice
     echo "ManagedOOMMemoryPressure=kill" >> /etc/systemd/system/user.slice
+    systemctl enable systemd-oomd
 fi
