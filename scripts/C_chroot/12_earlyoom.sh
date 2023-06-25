@@ -4,6 +4,11 @@
 
 if [[ $1 == y* || $1 == Y* ]]
 then
-    pacman -S --noconfirm earlyoom
-    install -m 644  /root/arch-install/configs/system-wide/earlyoom /etc/default/
+    echo "Installing overrides for slices"
+    echo "[Slice]" >> /etc/systemd/system/-.slice
+    echo "ManagedOOMSwap=kill" >> /etc/systemd/system/-.slice
+    echo "[Slice]" >> /etc/systemd/system/docker.slice
+    echo "ManagedOOMMemoryPressure=kill" >> /etc/systemd/system/docker.slice
+    echo "[Slice]" >> /etc/systemd/system/user.slice
+    echo "ManagedOOMMemoryPressure=kill" >> /etc/systemd/system/user.slice
 fi

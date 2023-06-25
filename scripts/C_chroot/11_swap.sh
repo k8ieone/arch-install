@@ -2,10 +2,9 @@
 
 # Usage: ./11_swaps.sh DOSWAP SWAPSIZE
 
-if [[ $1 == y* || $1 == Y* ]]
+if [[ $1 == y* || $1 == "" || $1 == Y* ]]
 then
-    fallocate -l $2 /swapfile
-    chmod 600 /swapfile
-    mkswap /swapfile
-    echo "/swapfile none swap defaults 0 0" | tee -a /etc/fstab
+    pacman -S zram-generator
+    echo "[zram0]" >> /etc/systemd/zram-generator.conf
+    echo "zram-size=ram / 2" >> /etc/systemd/zram-generator.conf
 fi

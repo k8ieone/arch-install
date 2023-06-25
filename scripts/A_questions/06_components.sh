@@ -14,11 +14,6 @@ echo -n "Do you wish to setup systemd-oomd (killing processes when running out o
 echo -n "(Y/n): "
 read -r DOOOM
 ## Ask about SWAP
-echo -n "Do you wish to setup a SWAP file? "
-echo -n "(y/N): "
+echo -n "Do you wish to setup zram-generator? "
+echo -n "(Y/n): "
 read -r DOSWAP
-if [[ $DOSWAP == y* || $DOSWAP == Y* ]]
-then
-    echo -n "Enter the SWAP file size (e.g.: 2G or 512M): "
-    read -r SWAPSIZE
-fi
