@@ -35,3 +35,6 @@ then
 	sed -i '/\[extra\]/a Server = https://repo.mcld.eu/repo/arm/$arch/$repo' /etc/pacman.conf
 	sed -i '/\[community\]/a Server = https://repo.mcld.eu/repo/arm/$arch/$repo' /etc/pacman.conf
 fi
+
+# Enable parallel downloads
+sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
