@@ -7,14 +7,6 @@ local keymap = require "core.keymap"
 local config = require "core.config"
 local style = require "core.style"
 
-local fontconfig = require "plugins.fontconfig"
-fontconfig.use {
-     font = { name = "sans", size = 13 * SCALE },
-     code_font = { name = "monospace", size = 13 * SCALE }
-}
-
-config.plugins.trimwhitespace = {["enabled"] = false}
-
 local lspconfig = require "plugins.lsp.config"
 
 lspconfig.pyright.setup()
@@ -51,11 +43,11 @@ lspconfig.yamlls.setup {
 -- style.font = renderer.font.load(DATADIR .. "/fonts/FiraSans-Regular.ttf", 14 * SCALE)
 -- style.code_font = renderer.font.load(DATADIR .. "/fonts/JetBrainsMono-Regular.ttf", 14 * SCALE)
 --
--- DATADIR is the location of the installed Lite XL Lua code, default color
+-- DATADIR is the location of the installed Pragtical Lua code, default color
 -- schemes and fonts.
--- USERDIR is the location of the Lite XL configuration directory.
+-- USERDIR is the location of the Pragtical configuration directory.
 --
--- font names used by lite:
+-- font names used by pragtical:
 -- style.font          : user interface
 -- style.big_font      : big text in welcome screen
 -- style.icon_font     : icons
@@ -77,12 +69,9 @@ lspconfig.yamlls.setup {
 
 ------------------------------ Plugins ----------------------------------------
 
--- enable or disable plugin loading setting config entries:
+-- disable plugin loading setting config entries:
 
--- enable plugins.trimwhitespace, otherwise it is disabled by default:
--- config.plugins.trimwhitespace = true
---
--- disable detectindent, otherwise it is enabled by default
+-- disable plugin detectindent, otherwise it is enabled by default:
 -- config.plugins.detectindent = false
 
 ---------------------------- Miscellaneous -------------------------------------
@@ -98,3 +87,4 @@ lspconfig.yamlls.setup {
 --   "%.suo$",         "%.pdb$",       "%.idb$",        "%.class$", "%.psd$", "%.db$",
 --   "^desktop%.ini$", "^%.DS_Store$", "^%.directory$",
 -- }
+

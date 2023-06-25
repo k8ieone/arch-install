@@ -5,10 +5,10 @@
 /root/arch-install/scripts/D_setuptypes/s886_headless.sh $1
 
 # Install GNOME
-pacman -S --noconfirm gnome
+pacman -S --noconfirm gnome gnome-tweaks
 
 # Install fonts
-pacman -S --noconfirm --needed ttf-ubuntu-mono-nerd ttf-ubuntu-font-family
+pacman -S --noconfirm --needed ttf-ubuntu-mono-nerd ttf-ubuntu-font-family ttf-ubuntu-nerd
 
 # Enable GDM
 systemctl enable gdm.service
@@ -16,7 +16,7 @@ systemctl enable gdm.service
 # Install some additional programs
 sudo -u $1 pikaur -S --noconfirm --needed mpv gnome-shell-extension-appindicator-git \
     gnome-shell-extension-caffeine-git gnome-shell-extension-clipboard-indicator-git gnome-shell-extension-freon-git \
-    pragtical-git ppm-git wget
+    pragtical-git ppm-git wget dict
 
 # Uninstall unneeded GNOME packages
 pacman -Rns --noconfirm gnome-software totem gnome-music gnome-photos orca yelp gnome-user-docs
