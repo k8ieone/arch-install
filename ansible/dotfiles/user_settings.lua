@@ -1,7 +1,7 @@
 return {
   ["config"] = {
     ["always_show_tabs"] = true,
-    ["borderless"] = true,
+    ["borderless"] = false,
     ["code_font"] = {
       ["fonts"] = {
         [1] = {
