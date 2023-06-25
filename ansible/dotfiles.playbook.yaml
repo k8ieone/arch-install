@@ -16,9 +16,9 @@
       user:
         name: "{{ the_user }}"
         shell: /bin/zsh
-    - name: Make sure the Lite-XL directory exists
+    - name: Make sure the Pragtical directory exists
       ansible.builtin.file:
-        path: ~/.config/lite-xl
+        path: ~/.config/pragtical
         state: directory
         mode: '0755'
     - name: Copy Pragtical init
