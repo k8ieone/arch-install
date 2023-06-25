@@ -27,6 +27,7 @@ cd /root/arch-install/ansible
 
 # Run the dotfiles playbook
 sudo -u $1 ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 dotfiles.playbook.yaml
+exit 1
 
 # Run the system configs playbook
 # TODO: Create the system configs playbook
