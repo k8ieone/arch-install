@@ -23,7 +23,8 @@ sudo -u $1 pikaur -S --noconfirm --needed oh-my-zsh-git zsh-theme-powerlevel10k 
 pacman -S --noconfirm --needed thefuck
 
 # Go to the directory with playbooks
-cd /root/arch-install/ansible
+mv /root/arch-install/ansible /
+cd /ansible
 
 # Run the dotfiles playbook
 sudo -u $1 ansible-playbook --connection=local --inventory 127.0.0.1, --limit 127.0.0.1 dotfiles.playbook.yaml
