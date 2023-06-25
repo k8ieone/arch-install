@@ -20,6 +20,7 @@ fi
 loadkeys cz-qwertz
 echo "Keyboard layout: cz-qwertz"
 
+# Multilib and local mirror
 if grep 'CARCH="x86_64"' /etc/makepkg.conf
 then
 	echo "Enabling Multilib"
