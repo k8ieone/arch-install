@@ -28,7 +28,7 @@ sudo -u $1 wget https://raw.githubusercontent.com/pragtical/plugins/master/plugi
 sudo -u $1 ppm install minimap autoinsert bracketmatch \
             snippets lintplus lsp_snippets lspkind smartopenselected \
             gitdiff_highlight gitstatus selectionhighlight \
-            colorpreview spellcheck \
+            colorpreview spellcheck memoryusage \
             copyfilelocation ghmarkdown restoretabs scalestatus typingspeed wordcount \
             indentguide nerdicons regexreplacepreview todotreeview \
             language_yaml \
