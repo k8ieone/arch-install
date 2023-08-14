@@ -30,10 +30,4 @@ sudo -u $1 ppm install minimap autoinsert bracketmatch \
             gitdiff_highlight gitstatus selectionhighlight \
             colorpreview spellcheck memoryusage \
             copyfilelocation ghmarkdown restoretabs scalestatus typingspeed wordcount \
-            indentguide nerdicons regexreplacepreview todotreeview \
-            language_yaml \
-            language_csharp language_diff \
-            language_env language_ignore \
-            language_ini language_java \
-            language_nginx  language_powershell \
-            language_psql language_toml
+            indentguide nerdicons regexreplacepreview todotreeview
