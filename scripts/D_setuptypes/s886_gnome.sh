@@ -16,7 +16,7 @@ systemctl enable gdm.service
 # Install some additional programs
 sudo -u $1 pikaur -S --noconfirm --needed mpv gnome-shell-extension-appindicator-git \
     gnome-shell-extension-caffeine-git gnome-shell-extension-clipboard-indicator-git gnome-shell-extension-freon-git \
-    pragtical ppm-git wget words
+    pragtical ppm-git wget words virt-manager
 
 # Uninstall unneeded GNOME packages
 pacman -Rns --noconfirm gnome-software totem gnome-music gnome-photos orca yelp gnome-user-docs

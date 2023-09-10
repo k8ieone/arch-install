@@ -22,7 +22,12 @@ pacman -S --noconfirm --needed ansible
 sudo -u $1 pikaur -S --noconfirm --needed oh-my-zsh-git zsh-theme-powerlevel10k zsh-syntax-highlighting zsh-autosuggestions
 
 # Install command line utilities
-pacman -S --noconfirm --needed thefuck
+pacman -S --noconfirm --needed thefuck docker libvirt
+
+systemctl enable docker.socket libvirtd.socket
+
+gpasswd -a $1 libvirt
+gpasswd -a $1 docker
 
 # Go to the directory with playbooks
 mv /root/arch-install/ansible /
