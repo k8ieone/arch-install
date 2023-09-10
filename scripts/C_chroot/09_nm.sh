@@ -2,12 +2,13 @@
 
 # Usage: ./09_nm.sh NMINSTALL
 
-set -e
 
 # COLORS
 red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
+
+set -e
 
 # Install NetworkManager
 if [[ $1 == y* || $1 == "" || $1 == Y* ]]
