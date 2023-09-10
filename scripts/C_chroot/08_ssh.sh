@@ -2,12 +2,13 @@
 
 # Usage: ./08_ssh.sh SSHINSTALL
 
-set -e
 
 # COLORS
 red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
+
+set -e
 
 # Install OpenSSH
 if [[ $1 == y* || $1 == "" || $1 == Y* ]]
