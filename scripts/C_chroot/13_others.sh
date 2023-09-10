@@ -5,9 +5,9 @@
 set -e
 
 # Fix mkinitcpio permissions for network booting
-echo "#!/usr/bin/env bash" >> /etc/initcpio/post/fix-perms
-echo "[[ -n "\$2" ]] || exit 0" > /etc/initcpio/post/fix-perms
-echo "chmod 644 -- "\$2"" > /etc/initcpio/post/fix-perms
+echo "#!/usr/bin/env bash" > /etc/initcpio/post/fix-perms
+echo "[[ -n "\$2" ]] || exit 0" >> /etc/initcpio/post/fix-perms
+echo "chmod 644 -- "\$2"" >> /etc/initcpio/post/fix-perms
 mkinitcpio -P
 
 # Install some packages
