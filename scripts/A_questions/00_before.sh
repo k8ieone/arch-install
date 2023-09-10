@@ -5,6 +5,8 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
+set -e
+
 # Check internet access
 if curl -Is https://archlinux.org/ | head -1 | grep 200
 then
