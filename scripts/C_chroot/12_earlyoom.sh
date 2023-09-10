@@ -2,6 +2,8 @@
 
 # Usage: ./12_earlyoom.sh DOOOM
 
+set -e
+
 if [[ $1 == y* || $1 == Y* ]]
 then
     echo "Installing overrides for slices"

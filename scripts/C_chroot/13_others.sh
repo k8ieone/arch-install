@@ -2,6 +2,8 @@
 
 # Usage: ./13_basics.sh _USERNAME
 
+set -e
+
 # Install some packages
 sudo pacman -S --noconfirm nano-syntax-highlighting man-pages man-db zsh crda nano base-devel mlocate
 

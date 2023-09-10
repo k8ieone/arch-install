@@ -2,6 +2,8 @@
 
 # # Usage: ./06_root.sh USERNAME USERPASS SSHINSTALL
 
+set -e
+
 # Create the user
 useradd -m $1
 

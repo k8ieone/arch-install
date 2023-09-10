@@ -2,6 +2,8 @@
 
 # Usage: ./07_grub.sh GRUBDESTDISK INSTALLGRUB
 
+set -e
+
 # COLORS
 red=$(tput setaf 1)
 green=$(tput setaf 2)

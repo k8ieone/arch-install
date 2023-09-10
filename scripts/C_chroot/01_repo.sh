@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Clone the repo into root's home
 cd ~
 pacman -S --noconfirm git
