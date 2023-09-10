@@ -20,6 +20,7 @@ echo "nameserver 10.0.0.6" >> /etc/resolv.conf
 sudo -u $1 pikaur -S --noconfirm telegraf-bin
 rm /etc/telegraf/telegraf.conf
 ln -s /mnt/config/telegraf.conf /etc/telegraf/telegraf.conf
+systemctl enable telegraf
 
 # Reconfigure mkinitcpio
 sed -i -e 's/HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)/HOOKS=(base udev autodetect net nbd modconf kms keyboard keymap consolefont block filesystems fsck)/g' /etc/mkinitcpio.conf
