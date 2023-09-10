@@ -10,7 +10,7 @@ arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/03_timezone.sh $_TIMEZ
 arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/04_hostname.sh $_HOSTNAME
 arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/05_locale.sh
 arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/06_root.sh $ROOTPASS
-arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/07_grub.sh $GRUBDESTDISK $INSTALLGRUB
+arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/07_loader.sh $GRUBDESTDISK $INSTALLGRUB
 arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/08_ssh.sh $SSHINSTALL
 arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/09_nm.sh $NMINSTALL
 arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/10_user.sh $_USERNAME $USERPASS $SSHINSTALL
