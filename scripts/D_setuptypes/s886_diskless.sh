@@ -5,7 +5,7 @@
 set -e
 
 # Install NFS requirements
-pacman -S --noconfirm mkinitcpio-nfs-utils nfs-utils
+pacman -S --noconfirm mkinitcpio-nfs-utils nfs-utils arch-install-scripts
 
 # Add shared config mount
 mkdir /mnt/config
