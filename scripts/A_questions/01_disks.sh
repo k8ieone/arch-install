@@ -42,4 +42,5 @@ then
     fi
 else
     INSTALLGRUB="n"
+    GRUBDESTDISK="/dev/does/not/exist"
 fi

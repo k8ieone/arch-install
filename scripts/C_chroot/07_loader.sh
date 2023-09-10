@@ -8,7 +8,7 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
-set -e
+set -ex
 
 # Install GRUB
 if [[ $2 == y* || $2 == "" || $2 == Y* ]]
