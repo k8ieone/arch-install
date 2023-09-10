@@ -4,8 +4,6 @@
 
 set -e
 
-/root/arch-install/scripts/D_setuptypes/s886_headless.sh $1
-
 # Install GNOME
 pacman -S --noconfirm gnome gnome-tweaks
 

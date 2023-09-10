@@ -22,5 +22,15 @@ then
     arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_headless.sh $_USERNAME
 elif [[ $SETUPTYPE == "2" ]]
 then
+    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_headless.sh $_USERNAME
     arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_gnome.sh $_USERNAME
+elif [[ $SETUPTYPE == "3" ]]
+then
+    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_headless.sh $_USERNAME
+    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_diskless.sh $_USERNAME
+elif [[ $SETUPTYPE == "4" ]]
+then
+    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_headless.sh $_USERNAME
+    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_gnome.sh $_USERNAME
+    arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_diskless.sh $_USERNAME
 fi
