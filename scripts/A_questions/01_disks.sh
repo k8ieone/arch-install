@@ -41,5 +41,5 @@ then
         fi
     fi
 else
-    :
+    INSTALLGRUB="n"
 fi
