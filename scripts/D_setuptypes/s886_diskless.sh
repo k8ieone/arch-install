@@ -12,6 +12,10 @@ mkdir /mnt/config
 mount 10.0.0.3:/srv/nfs/configs /mnt/config
 genfstab / > /etc/fstab
 
+# Set DNS server
+echo "search lan" > /etc/resolv.conf
+echo "nameserver 10.0.0.6" >> /etc/resolv.conf
+
 # Install Telegraf
 sudo -u $1 pikaur -S --noconfirm telegraf-bin
 rm /etc/telegraf/telegraf.conf
