@@ -2,6 +2,8 @@
 
 # Usage: ./11_swaps.sh DOSWAP SWAPSIZE
 
+set -e
+
 if [[ $1 == y* || $1 == "" || $1 == Y* ]]
 then
     pacman -S --noconfirm zram-generator

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Here we ask any questions
 source scripts/A_questions/00_before.sh
 source scripts/A_questions/01_disks.sh

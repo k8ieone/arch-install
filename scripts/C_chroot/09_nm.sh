@@ -2,6 +2,8 @@
 
 # Usage: ./09_nm.sh NMINSTALL
 
+set -e
+
 # COLORS
 red=$(tput setaf 1)
 green=$(tput setaf 2)

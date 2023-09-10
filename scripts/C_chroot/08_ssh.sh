@@ -2,6 +2,8 @@
 
 # Usage: ./08_ssh.sh SSHINSTALL
 
+set -e
+
 # COLORS
 red=$(tput setaf 1)
 green=$(tput setaf 2)
