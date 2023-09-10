@@ -4,6 +4,9 @@
 
 set -e
 
+# Install NFS requirements
+pacman -S --noconfirm mkinitcpio-nfs-utils nfs-utils
+
 # Add shared config mount
 mkdir /mnt/config
 mount 10.0.0.3:/srv/nfs/configs /mnt/config
