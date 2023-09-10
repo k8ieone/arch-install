@@ -14,7 +14,7 @@ pacman -S --noconfirm --needed ttf-ubuntu-mono-nerd ttf-ubuntu-font-family ttf-u
 systemctl enable gdm.service
 
 # Install some additional programs
-sudo -u $1 pikaur -S --noconfirm --needed mpv gnome-shell-extension-appindicator-git \
+sudo -u $1 pikaur -S --noconfirm --needed mpv gnome-shell-extension-appindicator \
     gnome-shell-extension-caffeine-git gnome-shell-extension-clipboard-indicator-git gnome-shell-extension-freon-git \
     pragtical ppm-git wget words virt-manager
 
