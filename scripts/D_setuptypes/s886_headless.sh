@@ -22,7 +22,7 @@ pacman -S --noconfirm --needed ansible
 sudo -u $1 pikaur -S --noconfirm --needed oh-my-zsh-git zsh-theme-powerlevel10k zsh-syntax-highlighting zsh-autosuggestions
 
 # Install command line utilities
-pacman -S --noconfirm --needed thefuck docker libvirt
+pacman -S --noconfirm --needed thefuck docker libvirt eza
 
 systemctl enable docker.socket libvirtd.socket
 
