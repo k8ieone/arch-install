@@ -25,6 +25,10 @@ if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [ -d "$HOME/.dotnet/tools" ] ; then
+	PATH="$HOME/.dotnet/tools:$PATH"
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 export THEFUCK_EXCLUDE_RULES=fix_file
