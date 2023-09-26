@@ -66,7 +66,7 @@ return {
         ["enabled"] = true
       },
       ["linewrapping"] = {
-        ["enable_by_default"] = true,
+        ["enable_by_default"] = false,
         ["mode"] = "word"
       },
       ["lsp"] = {
