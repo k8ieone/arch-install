@@ -102,6 +102,7 @@ return {
       ["treeview"] = {
         ["expand_dirs_to_focused_file"] = true,
         ["scroll_to_focused_file"] = true,
+        ["show_hidden"] = true,
         ["visible"] = false
       },
       ["trimwhitespace"] = {
