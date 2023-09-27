@@ -99,6 +99,9 @@ return {
       ["spellcheck"] = {
         ["dictionary_file"] = "/usr/share/dict/american-english"
       },
+      ["todotreeview"] = {
+        ["visible"] = true
+      },
       ["treeview"] = {
         ["expand_dirs_to_focused_file"] = true,
         ["scroll_to_focused_file"] = true,
