@@ -40,4 +40,4 @@ then
 fi
 
 # Enable parallel downloads
-sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/g' /etc/pacman.conf
+sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 15/g' /etc/pacman.conf
