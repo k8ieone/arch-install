@@ -19,7 +19,7 @@ sudo -u $1 pikaur -S --noconfirm --needed mpv gnome-shell-extension-appindicator
     pragtical ppm-git wget words virt-manager
 
 # Uninstall unneeded GNOME packages
-pacman -Rns --noconfirm gnome-software totem gnome-music gnome-photos orca yelp gnome-user-docs
+pacman -Rns --noconfirm gnome-software totem gnome-music orca yelp gnome-user-docs
 
 # Install Pragtical plugins
 
