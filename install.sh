@@ -2,13 +2,19 @@
 
 # Here we ask any questions
 source scripts/A_questions/00_before.sh
-source scripts/A_questions/01_disks.sh
-source scripts/A_questions/02_hostname.sh
-source scripts/A_questions/03_time.sh
-source scripts/A_questions/04_root.sh
-source scripts/A_questions/05_user.sh
-source scripts/A_questions/06_components.sh
-source scripts/A_questions/07_setuptypes.sh
+
+if [ ! -f "answers" ]; then
+  source scripts/A_questions/01_disks.sh
+  source scripts/A_questions/02_hostname.sh
+  source scripts/A_questions/03_time.sh
+  source scripts/A_questions/04_root.sh
+  source scripts/A_questions/05_user.sh
+  source scripts/A_questions/06_components.sh
+  source scripts/A_questions/07_setuptypes.sh
+else
+  echo "Loading from answers file..."
+  source answers
+fi
 
 # Here we do things based on the answers
 source scripts/B_actions/00_ntp.sh
