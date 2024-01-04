@@ -1,0 +1,20 @@
+---
+- hosts: all
+  tasks:
+    - name: Install Avahi
+      become: yes
+      pacman:
+        name: nss-mdns
+        state: present
+    - name: Edit nsswitch.conf
+      become: yes
+      lineinfile:
+        path: /etc/nsswitch.conf
+        search_string: 'hosts: files mymachines myhostname resolve [!UNAVAIL=return] dns'
+        line: 'hosts: files mymachines myhostname mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] dns'
+    - name: Enable the Avahi service
+      become: yes
+      systemd:
+        name: avahi-daemon.service
+        enabled: yes
+        state: started
