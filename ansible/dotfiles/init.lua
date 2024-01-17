@@ -15,9 +15,7 @@ lspconfig.yamlls.setup {
   settings = {
     yaml = {
       schemas = {
-      ["https://json.schemastore.org/kustomization.json"] = "/kustomization.yaml",
-      ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook"] = "/*.playbook.yaml",
-      ["kubernetes"] = "/*.k8s.yaml"
+        ["kubernetes"] = "/*.yaml"
       }
     }
   }
