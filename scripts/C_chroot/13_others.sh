@@ -11,14 +11,14 @@ echo "chmod 644 -- "\$2"" >> /etc/initcpio/post/fix-perms
 chmod +x /etc/initcpio/post/fix-perms
 
 # Install some packages
-sudo pacman -S --noconfirm nano-syntax-highlighting man-pages man-db zsh crda nano base-devel mlocate
+sudo pacman -S --noconfirm nano-syntax-highlighting man-pages man-db zsh crda nano base-devel plocate
 
 # Enable nano syntax highlighting
 echo "include \"/usr/share/nano/*.nanorc\"" | sudo tee -a /etc/nanorc
 echo "include \"/usr/share/nano-syntax-highlighting/*.nanorc\"" | sudo tee -a /etc/nanorc
 
 # Enable some basic services
-systemctl enable man-db.timer updatedb.timer systemd-resolved.service
+systemctl enable man-db.timer plocate-updatedb.timer systemd-resolved.service
 
 # Install yay
 cd /home/$1
