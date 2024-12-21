@@ -23,7 +23,7 @@ ln -s /mnt/config/telegraf.conf /etc/telegraf/telegraf.conf
 systemctl enable telegraf
 
 # Reconfigure mkinitcpio
-sed -i -e 's/HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)/HOOKS=(base udev autodetect net nbd modconf kms keyboard keymap consolefont block filesystems fsck)/g' /etc/mkinitcpio.conf
+sed -i -e 's/HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block filesystems fsck)/HOOKS=(base udev autodetect microcode net nbd modconf kms keyboard keymap consolefont block filesystems fsck)/g' /etc/mkinitcpio.conf
 
 # Install dependencies for netboot
 sudo -u $1 pikaur -S --noconfirm mkinitcpio-nbd
