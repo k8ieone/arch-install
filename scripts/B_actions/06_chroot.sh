@@ -15,8 +15,7 @@ arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/08_ssh.sh $SSHINSTALL
 arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/09_nm.sh $NMINSTALL
 arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/10_user.sh $_USERNAME $USERPASS $SSHINSTALL
 arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/11_swap.sh $DOSWAP $SWAPSIZE
-arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/12_earlyoom.sh $DOOOM
-arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/13_others.sh $_USERNAME
+arch-chroot /mnt bash /root/arch-install/scripts/C_chroot/12_others.sh $_USERNAME
 if [[ $SETUPTYPE == "1" ]]
 then
     arch-chroot /mnt bash /root/arch-install/scripts/D_setuptypes/s886_headless.sh $_USERNAME
