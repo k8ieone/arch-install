@@ -5,7 +5,7 @@ set -e
 # Clone the repo into root's home
 cd ~
 pacman -S --noconfirm git
-git clone https://github.com/a13xie/arch-install.git
+git clone https://github.com/k8ieone/arch-install.git -b v3
 rm /01_repo.sh
 
 # Multilib and local mirror
