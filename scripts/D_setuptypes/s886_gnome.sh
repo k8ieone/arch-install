@@ -19,4 +19,4 @@ sudo -u $1 pikaur -S --noconfirm --needed mpv gnome-shell-extension-appindicator
     wget words
 
 # Uninstall unneeded GNOME packages
-pacman -Rns --noconfirm gnome-software totem gnome-music orca yelp gnome-user-docs
+pacman -Rns --noconfirm gnome-software gnome-music orca yelp gnome-user-docs
